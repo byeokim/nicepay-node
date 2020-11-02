@@ -1,0 +1,44 @@
+{
+  "name": "node-nicepay-billing",
+  "version": "0.1.0",
+  "description": "Unofficial NICEPAY Billing API wrapper",
+  "homepage": "https://github.com/byeokim/node-nicepay-billing",
+  "author": "Byeonggi Kim <byeokim@gmail.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/byeokim/node-nicepay-billing.git"
+  },
+  "engines": {
+    "node": "^8.1 || >=10.*"
+  },
+  "main": "src/index.js",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "eslint"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "moment-timezone": "^0.5.31",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
+  }
+}
