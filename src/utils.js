@@ -20,6 +20,16 @@ const areOptionsValid = (options) => {
         break;
       }
 
+      case 'AuthToken': {
+        const MAX = 40;
+        if (!validator.isLength(options[key], {min: 0, max: MAX})) {
+          throw new Error(
+            `${key} should have less than or equal to ${MAX} characters`
+          );
+        }
+        break;
+      }
+
       case 'BuyerEmail': {
         const MAX = 60;
         if (!validator.isEmail(options[key])) {
@@ -251,6 +261,36 @@ const areOptionsValid = (options) => {
         }
         break;
       }
+
+      case 'RefundAcctNm': {
+        const MAX = 10;
+        if (!validator.isLength(options[key], {min: 0, max: MAX})) {
+          throw new Error(
+            `${key} should have less than or equal to ${MAX} characters`
+          );
+        }
+        break;
+      }
+
+      case 'RefundAcctNo': {
+        const MAX = 16;
+        if (!validator.isLength(options[key], {min: 0, max: MAX})) {
+          throw new Error(
+            `${key} should have less than or equal to ${MAX} characters`
+          );
+        }
+        break;
+      }
+
+      case 'RefundBankCd': {
+        const MAX = 3;
+        if (!validator.isLength(options[key], {min: 0, max: MAX})) {
+          throw new Error(
+            `${key} should have less than or equal to ${MAX} characters`
+          );
+        }
+        break;
+      }
     }
   }
 };
@@ -293,10 +333,6 @@ exports.getProps = (options, rules) => {
   areOptionsValid(options);
 
   return options;
-};
-
-exports.generateSignData = (params) => {
-  return crypto.createHash('sha256').update(params.join('')).digest('hex');
 };
 
 exports.generateTID = (MID, EdiDate) => {

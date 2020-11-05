@@ -1,20 +1,21 @@
 {
-  "name": "node-nicepay-billing",
-  "version": "0.1.0",
-  "description": "Unofficial NICEPAY Billing API wrapper",
-  "homepage": "https://github.com/byeokim/node-nicepay-billing",
+  "name": "nicepay-node",
+  "version": "0.2.0",
+  "description": "Unofficial NICEPAY API wrapper",
+  "homepage": "https://github.com/byeokim/nicepay-node",
   "author": "Byeonggi Kim <byeokim@gmail.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/byeokim/node-nicepay-billing.git"
+    "url": "git://github.com/byeokim/nicepay-node.git"
   },
   "engines": {
     "node": "^8.1 || >=10.*"
   },
   "main": "src/index.js",
+  "types": "index.d.ts",
   "license": "MIT",
   "husky": {
     "hooks": {
