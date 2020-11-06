@@ -16,7 +16,7 @@ class Checkout {
     this.generateSignData = nicepay.generateSignData;
   }
 
-  async pay(params) {
+  async charge(params) {
     const props = utils.getProps(params, {
       required: ['Amt', 'AuthToken', 'NextAppURL', 'TID'],
       optional: ['CharSet', 'EdiDate', 'EdiType'],
@@ -60,7 +60,7 @@ class Checkout {
     return response.data;
   }
 
-  async timeoutCancelPayment(params) {
+  async cancelTimeoutCharge(params) {
     const props = utils.getProps(params, {
       required: ['AuthToken', 'NetCancel', 'NetCancelURL', 'TID'],
       optional: ['Amt', 'CharSet', 'EdiDate', 'EdiType'],
@@ -104,7 +104,7 @@ class Checkout {
     return response.data;
   }
 
-  async cancelPayment(params) {
+  async cancelCharge(params) {
     const props = utils.getProps(params, {
       required: ['CancelAmt', 'CancelMsg', 'Moid', 'PartialCancelCode', 'TID'],
       optional: [

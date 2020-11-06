@@ -51,7 +51,7 @@ app.post(
     } = req.body;
 
     nicepay
-      .checkout.pay({
+      .checkout.charge({
         Amt,
         AuthToken,
         NextAppURL,
