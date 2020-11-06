@@ -97,6 +97,134 @@ nicepay
   .catch((err) => console.log(err));
 ```
 
+## API
+
+### 인증 결제
+
+초기화
+
+```js
+const Nicepay = require('nicepay-node');
+const nicepay = new Nicepay({
+  MID: '',
+  MerchantKey: '',
+  // 응답의 문자인코딩: 'euc-kr' (기본값), 'utf-8'
+  CharSet: 'utf-8',
+  // 응답의 데이터 형식: 'JSON' (기본값), 'KV'
+  EdiType: 'JSON',
+});
+```
+
+승인 API 호출
+
+```js
+nicepay.checkout.charge({
+    Amt,
+    AuthToken,
+    NextAppURL,
+    TID,
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
+망취소
+
+```js
+nicepay.checkout.cancelTimeoutCharge({
+    AuthToken,
+    NetCancel,
+    NetCancelURL,
+    TID,
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
+결제 취소 API 호출
+
+```js
+nicepay.checkout.cancelCharge({
+    CancelAmt,
+    CancelMsg,
+    Moid,
+    PartialCancelCode,
+    TID,
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
+### 빌링 결제
+
+초기화
+
+```js
+const Nicepay = require('nicepay-node');
+const nicepay = new Nicepay({
+  MID: '',
+  MerchantKey: '',
+  // 응답의 문자인코딩: 'euc-kr' (기본값), 'utf-8'
+  CharSet: 'utf-8',
+  // 응답의 데이터 형식: 'JSON' (기본값), 'KV'
+  EdiType: 'JSON',
+});
+```
+
+빌키 발급 요청
+
+```js
+nicepay.billing.createBID({
+    CardNo: '',
+    CardPw: '',
+    ExpMonth: '',
+    ExpYear: '',
+    IDNo: '',
+    Moid: '',
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
+빌키 삭제 요청
+
+```js
+nicepay.billing.removeBID({
+    BID: '',
+    Moid: '',
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
+빌링 결제 승인 요청
+
+```js
+nicepay.billing.charge({
+    Amt: '',
+    BID: '',
+    CardInterest: '',
+    CardQuota: '',
+    Moid: '',
+    GoodsName: '',
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
+빌링 결제 승인 취소 요청
+
+```js
+nicepay.billing.cancelCharge({
+    CancelAmt: '',
+    CancelMsg: '',
+    Moid: '',
+    PartialCancelCode: '',
+  })
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+```
+
 ## 라이센스
 
 [MIT](LICENSE)
