@@ -288,7 +288,7 @@ const params = {
 
 파라메터|타입|필수|예시|설명
 --|--|--|--|--
-BID|string|필수|BIKYabcdefghm1234567890123456|빌키
+BID|string|필수||빌키
 Moid|string|필수|1234-5678-9012-3456|상점(가맹점) 주문번호
 CharSet|string||euc-kr 또는 utf-8|Response의 문자인코딩 (미입력시: 초기화 때 설정한 값 또는 euc-kr)
 EdiDate|string||20201107120000|요청시간 (전문생성일시). 형식은 YYYYMMDDhhmmss. (미입력시: 현재시각으로 자동 설정)
@@ -323,7 +323,7 @@ const params = {
 파라메터|타입|필수|예시|설명
 --|--|--|--|--
 Amt|string|필수|1000|결제금액 (원 단위)
-BID|string|필수|BIKYabcdefghm1234567890123456|빌키
+BID|string|필수||빌키
 CardInterest|string|필수|0 또는 1|상점(가맹점)이 분담하는 무이자 할부의 사용여부. 0은 사용안함, 1은 사용함.
 CardQuota|string|필수|00 또는 01 또는 02 ...|할부개월 2자리. 00은 일시불.
 Moid|string|필수|1234-5678-9012-3456|상점(가맹점) 주문번호
