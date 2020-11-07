@@ -210,7 +210,6 @@ declare class Checkout {
     Moid: string;
     PartialCancelCode: string;
     TID: string;
-    Amt?: string;
     CharSet?: string;
     EdiDate?: string;
     EdiType?: string;

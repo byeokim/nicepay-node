@@ -109,7 +109,6 @@ class Checkout {
     const props = utils.getProps(params, {
       required: ['CancelAmt', 'CancelMsg', 'Moid', 'PartialCancelCode', 'TID'],
       optional: [
-        'Amt',
         'CharSet',
         'EdiDate',
         'EdiType',
