@@ -184,6 +184,7 @@ declare class Checkout {
 
   cancelTimeoutCharge(params: {
     AuthToken: string;
+    NetCancelURL: string;
     TID: string;
     Amt?: string;
     CharSet?: string;

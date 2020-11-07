@@ -140,9 +140,9 @@ const params = {
 파라메터|타입|필수|예시|설명
 --|--|--|--|--
 Amt|string|필수|1000|결제금액 (원 단위)
-AuthToken|string|필수|NICETOKNF123A456|인증토큰 (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
-NextAppURL|string|필수|https://webapi.nicepay.co.kr/webapi/pay_process.jsp|본 결제승인 요청 API URL (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
-TID|string|필수|abcdefghm03012345678901234567|거래 ID (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+AuthToken|string|필수||인증토큰 (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+NextAppURL|string|필수||본 결제승인 요청 API URL (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+TID|string|필수||거래 ID (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
 CharSet|string||euc-kr 또는 utf-8|Response의 문자인코딩 (미입력시: 초기화 때 설정한 값 또는 euc-kr)
 EdiDate|string||20201107120000|요청시간 (전문생성일시). 형식은 YYYYMMDDhhmmss. (미입력시: 현재시각으로 자동 설정)
 EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형식. (미입력시: 초기화 때 설정한 값 또는 JSON)
@@ -169,6 +169,7 @@ nicepay.checkout.cancelTimeoutCharge(params)
 ```js
 const params = {
   AuthToken: '',
+  NetCancelURL: '',
   TID: '',
   ...
 };
@@ -176,8 +177,9 @@ const params = {
 
 파라메터|타입|필수|예시|설명
 --|--|--|--|--
-AuthToken|string|필수|NICETOKNF123A456|인증토큰 (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
-TID|string|필수|abcdefghm03012345678901234567|거래 ID (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+AuthToken|string|필수||인증토큰 (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+NetCancelURL|string|필수||본 결제승인 요청에 대한 망취소 API URL (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+TID|string|필수||거래 ID (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
 Amt|string||1000|결제금액 (원 단위)
 CharSet|string||euc-kr 또는 utf-8|Response의 문자인코딩 (미입력시: 초기화 때 설정한 값 또는 euc-kr)
 EdiDate|string||20201107120000|요청시간 (전문생성일시). 형식은 YYYYMMDDhhmmss. (미입력시: 현재시각으로 자동 설정)
@@ -214,7 +216,7 @@ CancelAmt|string|필수|1000|결제취소 금액 (원 단위)
 CancelMsg|string|필수|고객요청|결제취소 사유
 Moid|string|필수|1234-5678-9012-3456|상점(가맹점) 주문번호
 PartialCancelCode|string|필수|0 또는 1|부분취소 여부. 0은 전체취소, 1은 부분취소.
-TID|string|필수|abcdefghm03012345678901234567|거래 ID (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
+TID|string|필수||거래 ID (PC/모바일 결제창에서 구매자가 카드정보 입력 후 반환되는 값)
 CharSet|string||euc-kr 또는 utf-8|Response의 문자인코딩 (미입력시: 초기화 때 설정한 값 또는 euc-kr)
 EdiDate|string||20201107120000|요청시간 (전문생성일시). 형식은 YYYYMMDDhhmmss. (미입력시: 현재시각으로 자동 설정)
 EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형식. (미입력시: 초기화 때 설정한 값 또는 JSON)
