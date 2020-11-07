@@ -110,8 +110,8 @@ const options = {
 
 옵션|타입|필수|예시|설명
 --|--|--|--|--
-MID|string|필수|abcdefghm|상점(가맹점) ID
-MerchantKey|string|필수|Y2RlZmdoaWprbG0==|상점(가맹점) 키
+MID|string|필수||상점(가맹점) ID
+MerchantKey|string|필수||상점(가맹점) 키
 CharSet|string||euc-kr 또는 utf-8|Response의 문자인코딩 (미입력시: euc-kr)
 EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형식. (미입력시: JSON)
 
