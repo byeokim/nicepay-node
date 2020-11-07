@@ -62,11 +62,12 @@ class Checkout {
 
   async cancelTimeoutCharge(params) {
     const props = utils.getProps(params, {
-      required: ['AuthToken', 'NetCancel', 'NetCancelURL', 'TID'],
+      required: ['AuthToken', 'NetCancelURL', 'TID'],
       optional: ['Amt', 'CharSet', 'EdiDate', 'EdiType'],
     });
 
     props.MID = this._api.MID;
+    props.NetCancel = '1';
 
     if (!Object.prototype.hasOwnProperty.call(props, 'EdiDate')) {
       props.EdiDate = moment
