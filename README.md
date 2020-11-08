@@ -37,8 +37,8 @@ const nicepay = new Nicepay({
 
 app.post('/payment', express.json(), async (req, res) => {
   const {
-    AuthToken,
     Amt,
+    AuthToken,
     NextAppURL,
     TxTid: TID
   } = req.body;
