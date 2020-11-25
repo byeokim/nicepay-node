@@ -146,7 +146,7 @@ class Billing {
     return response.data;
   }
 
-  async removeBID(params) {
+  async deleteBID(params) {
     const props = utils.getProps(params, {
       required: ['BID', 'Moid'],
       optional: ['CharSet', 'EdiDate', 'EdiType'],

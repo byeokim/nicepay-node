@@ -271,7 +271,7 @@ NICEPAY BILLING API 1.0.6 문서를 참고하시기 바랍니다.
 ##### 빌키 삭제 요청
 
 ```js
-nicepay.billing.removeBID(params)
+nicepay.billing.deleteBID(params)
   .then((result) => console.log(result))
   .catch((err) => console.log(err));
 ```

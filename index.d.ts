@@ -37,7 +37,7 @@ declare class Billing {
       }>
     | undefined;
 
-  removeBID(params: {
+  deleteBID(params: {
     BID: string;
     Moid: string;
     CharSet?: string;
