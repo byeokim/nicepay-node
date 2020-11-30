@@ -7,12 +7,12 @@ const areOptionsValid = (options) => {
   for (const key in options) {
     switch (key) {
       case 'Amt': {
-        if (!validator.isNumeric(options[key])) {
+        if (!validator.isNumeric(options[key].toString())) {
           throw new Error(`${key} should be number`);
         }
 
         const MAX = 12;
-        if (!validator.isLength(options[key], {min: 0, max: MAX})) {
+        if (!validator.isLength(options[key].toString(), {min: 0, max: MAX})) {
           throw new Error(
             `${key} should have less than or equal to ${MAX} characters`
           );
@@ -71,11 +71,11 @@ const areOptionsValid = (options) => {
 
       case 'CancelAmt': {
         const MAX = 12;
-        if (!validator.isNumeric(options[key])) {
+        if (!validator.isNumeric(options[key].toString())) {
           throw new Error(`${key} should be number`);
         }
 
-        if (!validator.isLength(options[key], {min: 0, max: MAX})) {
+        if (!validator.isLength(options[key].toString(), {min: 0, max: MAX})) {
           throw new Error(
             `${key} should have less than or equal to ${MAX} characters`
           );
