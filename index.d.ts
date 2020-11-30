@@ -54,7 +54,7 @@ declare class Billing {
     | undefined;
 
   charge(params: {
-    Amt: string;
+    Amt: number;
     BID: string;
     CardInterest: string;
     CardQuota: string;
@@ -68,14 +68,14 @@ declare class Billing {
     EdiDate?: string;
     EdiType?: string;
     GoodsVat?: string;
-    ServiceAmt?: string;
-    SupplyAmt?: string;
-    TaxFreeAmt?: string;
+    ServiceAmt?: number;
+    SupplyAmt?: number;
+    TaxFreeAmt?: number;
   }):
     | Promise<{
         AcquCardCode: string;
         AcquCardName: string;
-        Amt: string;
+        Amt: number;
         AuthCode: string;
         AuthDate: string;
         CardCl: string;
@@ -92,7 +92,7 @@ declare class Billing {
     | undefined;
 
   cancelCharge(params: {
-    CancelAmt: string;
+    CancelAmt: number;
     CancelMsg: string;
     Moid: string;
     PartialCancelCode: string;
@@ -101,12 +101,12 @@ declare class Billing {
     EdiDate?: string;
     EdiType?: string;
     GoodsVat?: string;
-    ServiceAmt?: string;
-    SupplyAmt?: string;
-    TaxFreeAmt?: string;
+    ServiceAmt?: number;
+    SupplyAmt?: number;
+    TaxFreeAmt?: number;
   }):
     | Promise<{
-        CancelAmt: string;
+        CancelAmt: number;
         CancelDate: string;
         CancelNum: string;
         CancelTime: string;
@@ -115,7 +115,7 @@ declare class Billing {
         MID: string;
         Moid: string;
         PayMethod: string;
-        RemainAmt: string;
+        RemainAmt: number;
         ResultCode: string;
         ResultMsg: string;
         TID: string;
@@ -126,7 +126,7 @@ declare class Billing {
 declare class Checkout {
   constructor(nicepay: Nicepay);
   charge(params: {
-    Amt: string;
+    Amt: number;
     AuthToken: string;
     NextAppURL: string;
     TID: string;
@@ -135,7 +135,7 @@ declare class Checkout {
     EdiType?: string;
   }): Promise<
     | {
-        Amt: string;
+        Amt: number;
         AuthDate: string;
         MID: string;
         Moid: string;
@@ -161,14 +161,14 @@ declare class Checkout {
         CartData?: string;
         CcPartCl?: string;
         ClickpayCl?: string;
-        CouponAmt?: string;
-        CouponMinAmt?: string;
+        CouponAmt?: number;
+        CouponMinAmt?: number;
         MallReserved?: string;
-        MultiCardAcquAmt?: string;
+        MultiCardAcquAmt?: number;
         MultiCl?: string;
-        MultiCouponAmt?: string;
-        MultiPointAmt?: string;
-        PointAppAmt?: string;
+        MultiCouponAmt?: number;
+        MultiPointAmt?: number;
+        PointAppAmt?: number;
         RcptAuthCode?: string;
         RcptTID?: string;
         RcptType?: string;
@@ -186,13 +186,13 @@ declare class Checkout {
     AuthToken: string;
     NetCancelURL: string;
     TID: string;
-    Amt?: string;
+    Amt?: number;
     CharSet?: string;
     EdiDate?: string;
     EdiType?: string;
   }):
     | Promise<{
-        CancelAmt: string;
+        CancelAmt: number;
         MID: string;
         Moid: string;
         ResultCode: string;
@@ -200,13 +200,13 @@ declare class Checkout {
         CancelDate?: string;
         CancelTime?: string;
         PayMethod?: string;
-        RemainAmt?: string;
+        RemainAmt?: number;
         TID?: string;
       }>
     | undefined;
 
   cancelCharge(params: {
-    CancelAmt: string;
+    CancelAmt: number;
     CancelMsg: string;
     Moid: string;
     PartialCancelCode: string;
@@ -219,7 +219,7 @@ declare class Checkout {
     RefundAcctNm?: string;
   }):
     | Promise<{
-        CancelAmt: string;
+        CancelAmt: number;
         MID: string;
         Moid: string;
         ResultCode: string;
@@ -227,7 +227,7 @@ declare class Checkout {
         CancelDate?: string;
         CancelTime?: string;
         PayMethod?: string;
-        RemainAmt?: string;
+        RemainAmt?: number;
         TID?: string;
       }>
     | undefined;
