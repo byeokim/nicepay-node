@@ -3,6 +3,7 @@
 const axios = require('axios');
 const querystring = require('querystring');
 const moment = require('moment-timezone');
+const iconv = require('iconv-lite');
 const utils = require('../utils');
 
 const DEFAULT_BASE_URL = 'https://webapi.nicepay.co.kr/webapi/';
@@ -142,6 +143,14 @@ class Checkout {
 
     if (!Object.prototype.hasOwnProperty.call(props, 'EdiType')) {
       props.EdiType = this._api.EdiType;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(props, 'CancelMsg')) {
+      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr');
+    }
+
+    if (Object.prototype.hasOwnProperty.call(props, 'RefundAcctNm')) {
+      props.RefundAcctNm = iconv.encode(props.RefundAcctNm, 'euc-kr');
     }
 
     const response = await axios.post(
