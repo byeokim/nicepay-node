@@ -8,13 +8,13 @@ const areOptionsValid = (options) => {
     switch (key) {
       case 'Amt': {
         if (!validator.isNumeric(options[key].toString())) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         const MAX = 12;
         if (!validator.isLength(options[key].toString(), {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -24,7 +24,7 @@ const areOptionsValid = (options) => {
         const MAX = 40;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -33,12 +33,12 @@ const areOptionsValid = (options) => {
       case 'BuyerEmail': {
         const MAX = 60;
         if (!validator.isEmail(options[key])) {
-          throw new Error(`${key} is invalid email format`);
+          throw new Error(`${key}: ${options[key]} is invalid email format`);
         }
 
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -48,7 +48,7 @@ const areOptionsValid = (options) => {
         const MAX = 30;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
 
@@ -58,12 +58,12 @@ const areOptionsValid = (options) => {
       case 'BuyerTel': {
         const MAX = 40;
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -72,12 +72,12 @@ const areOptionsValid = (options) => {
       case 'CancelAmt': {
         const MAX = 12;
         if (!validator.isNumeric(options[key].toString())) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key].toString(), {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -87,7 +87,7 @@ const areOptionsValid = (options) => {
         const MAX = 100;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -95,7 +95,7 @@ const areOptionsValid = (options) => {
 
       case 'CardInterest': {
         if (!(options[key] === '0' || options[key] !== '1')) {
-          throw new Error(`${key} should be 0 or 1`);
+          throw new Error(`${key}: ${options[key]} should be 0 or 1`);
         }
         break;
       }
@@ -103,12 +103,12 @@ const areOptionsValid = (options) => {
       case 'CardNo': {
         const MAX = 16;
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key], {min: 16, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -116,11 +116,11 @@ const areOptionsValid = (options) => {
 
       case 'CardPoint': {
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!(options[key] === '0' || options[key] !== '1')) {
-          throw new Error(`${key} should be either 0 or 1`);
+          throw new Error(`${key}: ${options[key]} should be either 0 or 1`);
         }
         break;
       }
@@ -140,12 +140,12 @@ const areOptionsValid = (options) => {
       case 'CardQuota': {
         const MAX = 2;
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -153,14 +153,16 @@ const areOptionsValid = (options) => {
 
       case 'CartType': {
         if (!(options[key] === '0' || options[key] !== '1')) {
-          throw new Error(`${key} should be either 0 or 1`);
+          throw new Error(`${key}: ${options[key]} should be either 0 or 1`);
         }
         break;
       }
 
       case 'CharSet': {
         if (!(options[key] === 'utf-8' || options[key] === 'euc-kr')) {
-          throw new Error(`${key} should be either utf-8 or euc-kr`);
+          throw new Error(
+            `${key}: ${options[key]} should be either utf-8 or euc-kr`
+          );
         }
         break;
       }
@@ -168,18 +170,22 @@ const areOptionsValid = (options) => {
       case 'EdiDate': {
         const MAX = 14;
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key], {min: MAX, max: MAX})) {
-          throw new Error(`${key} must have exactly ${MAX} characters`);
+          throw new Error(
+            `${key}: ${options[key]} must have exactly ${MAX} characters`
+          );
         }
         break;
       }
 
       case 'EdiType': {
         if (!(options[key] === 'JSON' || options[key] === 'KV')) {
-          throw new Error(`${key} should be either JSON or KV`);
+          throw new Error(
+            `${key}: ${options[key]} should be either JSON or KV`
+          );
         }
         break;
       }
@@ -187,7 +193,9 @@ const areOptionsValid = (options) => {
       case 'MID': {
         const MAX = 10;
         if (!validator.isLength(options[key], {min: MAX, max: MAX})) {
-          throw new Error(`${key} must have exactly ${MAX} characters`);
+          throw new Error(
+            `${key}: ${options[key]} must have exactly ${MAX} characters`
+          );
         }
         break;
       }
@@ -196,7 +204,7 @@ const areOptionsValid = (options) => {
         const MAX = 64;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -205,11 +213,13 @@ const areOptionsValid = (options) => {
       case 'ExpMonth': {
         const MAX = 2;
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key], {min: MAX, max: MAX})) {
-          throw new Error(`${key} must have exactly ${MAX} characters`);
+          throw new Error(
+            `${key}: ${options[key]} must have exactly ${MAX} characters`
+          );
         }
         break;
       }
@@ -217,11 +227,13 @@ const areOptionsValid = (options) => {
       case 'ExpYear': {
         const MAX = 2;
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         if (!validator.isLength(options[key], {min: MAX, max: MAX})) {
-          throw new Error(`${key} must have exactly ${MAX} characters`);
+          throw new Error(
+            `${key}: ${options[key]} must have exactly ${MAX} characters`
+          );
         }
         break;
       }
@@ -230,7 +242,7 @@ const areOptionsValid = (options) => {
         const MAX = 40;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -238,7 +250,7 @@ const areOptionsValid = (options) => {
 
       case 'IDNo': {
         if (!validator.isNumeric(options[key])) {
-          throw new Error(`${key} should be number`);
+          throw new Error(`${key}: ${options[key]} should be number`);
         }
 
         // IDNo는 생년월일 6자리 또는 사업자등록번호 10자리
@@ -249,7 +261,7 @@ const areOptionsValid = (options) => {
           )
         ) {
           throw new Error(
-            `${key} must have exactly 6 characters for date of birth in YYMMDD format, or 10 characters for Business Registration Number`
+            `${key}: ${options[key]} must have exactly 6 characters for date of birth in YYMMDD format, or 10 characters for Business Registration Number`
           );
         }
         break;
@@ -257,7 +269,7 @@ const areOptionsValid = (options) => {
 
       case 'PartialCancelCode': {
         if (!(options[key] === '0' || options[key] !== '1')) {
-          throw new Error(`${key} should be either 0 or 1`);
+          throw new Error(`${key}: ${options[key]} should be either 0 or 1`);
         }
         break;
       }
@@ -266,7 +278,7 @@ const areOptionsValid = (options) => {
         const MAX = 10;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -276,7 +288,7 @@ const areOptionsValid = (options) => {
         const MAX = 16;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
@@ -286,7 +298,7 @@ const areOptionsValid = (options) => {
         const MAX = 3;
         if (!validator.isLength(options[key], {min: 0, max: MAX})) {
           throw new Error(
-            `${key} should have less than or equal to ${MAX} characters`
+            `${key}: ${options[key]} should have less than or equal to ${MAX} characters`
           );
         }
         break;
