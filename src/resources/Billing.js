@@ -8,7 +8,7 @@ const utils = require('../utils');
 
 const DEFAULT_BASE_URL = 'https://webapi.nicepay.co.kr/webapi/billing/';
 const DEFAULT_HEADERS = {
-  'Content-Type': 'application/x-www-form-urlencoded',
+  'Content-Type': 'application/x-www-form-urlencoded;charset=euc-kr',
 };
 
 class Billing {
@@ -66,7 +66,7 @@ class Billing {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'BuyerName')) {
-      props.BuyerName = iconv.encode(props.BuyerName, 'euc-kr');
+      props.BuyerName = iconv.encode(props.BuyerName, 'euc-kr').toString();
     }
 
     delete props.CardNo;
@@ -141,11 +141,11 @@ class Billing {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'GoodsName')) {
-      props.GoodsName = iconv.encode(props.GoodsName, 'euc-kr');
+      props.GoodsName = iconv.encode(props.GoodsName, 'euc-kr').toString();
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'BuyerName')) {
-      props.BuyerName = iconv.encode(props.BuyerName, 'euc-kr');
+      props.BuyerName = iconv.encode(props.BuyerName, 'euc-kr').toString();
     }
 
     const response = await axios.post(
@@ -247,7 +247,7 @@ class Billing {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'CancelMsg')) {
-      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr');
+      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr').toString();
     }
 
     const response = await axios.post(

@@ -146,11 +146,13 @@ class Checkout {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'CancelMsg')) {
-      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr');
+      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr').toString();
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'RefundAcctNm')) {
-      props.RefundAcctNm = iconv.encode(props.RefundAcctNm, 'euc-kr');
+      props.RefundAcctNm = iconv
+        .encode(props.RefundAcctNm, 'euc-kr')
+        .toString();
     }
 
     const response = await axios.post(
