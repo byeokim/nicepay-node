@@ -342,7 +342,28 @@ TaxFreeAmt|number|||별도 면세금액 설정시 사용
 
 ###### Response `object` | `undefined`
 
-NICEPAY BILLING API 1.0.6 문서를 참고하시기 바랍니다.
+```
+{
+  ResultCode: '',
+  ResultMsg: '',
+  AuthCode: '',
+  AuthDate: '',
+  AcquCardCode: '',
+  AcquCardName: '',
+  CardCode: '',
+  CardName: '',
+  CardQuota: '',
+  CardInterest: '',
+  CardCl: '',
+  Amt: '',
+  GoodsName: '',
+  MID: '',
+  Moid: '',
+  BuyerName: '',
+  TID: '',
+  CardNo: ''
+}
+```
 
 ##### 빌링 결제 승인 취소 요청
 
