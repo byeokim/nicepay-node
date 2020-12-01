@@ -3,12 +3,11 @@
 const axios = require('axios');
 const querystring = require('querystring');
 const moment = require('moment-timezone');
-const iconv = require('iconv-lite');
 const utils = require('../utils');
 
 const DEFAULT_BASE_URL = 'https://webapi.nicepay.co.kr/webapi/';
 const DEFAULT_HEADERS = {
-  'Content-Type': 'application/x-www-form-urlencoded',
+  'Content-Type': 'application/x-www-form-urlencoded;charset=euc-kr',
 };
 
 class Checkout {
@@ -52,7 +51,9 @@ class Checkout {
 
     const response = await axios.post(
       props.NextAppURL,
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }
@@ -97,7 +98,9 @@ class Checkout {
 
     const response = await axios.post(
       props.NetCancelURL,
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }
@@ -146,18 +149,18 @@ class Checkout {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'CancelMsg')) {
-      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr').toString();
+      props.CancelMsg = utils.escapeEucKrString(props.CancelMsg);
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'RefundAcctNm')) {
-      props.RefundAcctNm = iconv
-        .encode(props.RefundAcctNm, 'euc-kr')
-        .toString();
+      props.RefundAcctNm = utils.escapeEucKrString(props.RefundAcctNm);
     }
 
     const response = await axios.post(
       DEFAULT_BASE_URL + 'cancel_process.jsp',
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }

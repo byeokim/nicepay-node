@@ -1,6 +1,6 @@
 {
   "name": "nicepay-node",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Unofficial NICEPAY API wrapper",
   "homepage": "https://github.com/byeokim/nicepay-node",
   "author": "Byeonggi Kim <byeokim@gmail.com>",

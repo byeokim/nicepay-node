@@ -1,6 +1,8 @@
 'use strict';
 
 const crypto = require('crypto');
+const iconv = require('iconv-lite');
+const querystring = require('querystring');
 const validator = require('validator');
 
 const areOptionsValid = (options) => {
@@ -377,3 +379,13 @@ exports.generateEncData = (
     cipher.end();
   });
 };
+
+exports.escapeEucKrString = (eucKrString) => {
+  return [...iconv.encode(eucKrString, 'euc-kr')]
+    .map((n) => `%${n.toString(16)}`)
+    .join('')
+    .toUpperCase();
+};
+
+exports.escapeOnlyNotEscapedString = (str) =>
+  /%([a-f0-9]{2})/gi.test(str) ? str : querystring.escape(str);

@@ -3,7 +3,6 @@
 const axios = require('axios');
 const querystring = require('querystring');
 const moment = require('moment-timezone');
-const iconv = require('iconv-lite');
 const utils = require('../utils');
 
 const DEFAULT_BASE_URL = 'https://webapi.nicepay.co.kr/webapi/billing/';
@@ -66,7 +65,7 @@ class Billing {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'BuyerName')) {
-      props.BuyerName = iconv.encode(props.BuyerName, 'euc-kr').toString();
+      props.BuyerName = utils.escapeEucKrString(props.BuyerName);
     }
 
     delete props.CardNo;
@@ -77,7 +76,9 @@ class Billing {
 
     const response = await axios.post(
       DEFAULT_BASE_URL + 'billing_regist.jsp',
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }
@@ -141,16 +142,18 @@ class Billing {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'GoodsName')) {
-      props.GoodsName = iconv.encode(props.GoodsName, 'euc-kr').toString();
+      props.GoodsName = utils.escapeEucKrString(props.GoodsName);
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'BuyerName')) {
-      props.BuyerName = iconv.encode(props.BuyerName, 'euc-kr').toString();
+      props.BuyerName = utils.escapeEucKrString(props.BuyerName);
     }
 
     const response = await axios.post(
       DEFAULT_BASE_URL + 'billing_approve.jsp',
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }
@@ -194,7 +197,9 @@ class Billing {
 
     const response = await axios.post(
       DEFAULT_BASE_URL + 'billkey_remove.jsp',
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }
@@ -247,12 +252,14 @@ class Billing {
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'CancelMsg')) {
-      props.CancelMsg = iconv.encode(props.CancelMsg, 'euc-kr').toString();
+      props.CancelMsg = utils.escapeEucKrString(props.CancelMsg);
     }
 
     const response = await axios.post(
       DEFAULT_BASE_URL + 'cancel_process.jsp',
-      querystring.stringify(props),
+      querystring.stringify(props, '&', '=', {
+        encodeURIComponent: utils.escapeOnlyNotEscapedString,
+      }),
       {
         headers: {...DEFAULT_HEADERS},
       }
