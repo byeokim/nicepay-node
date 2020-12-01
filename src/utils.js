@@ -388,4 +388,4 @@ exports.escapeEucKrString = (eucKrString) => {
 };
 
 exports.escapeOnlyNotEscapedString = (str) =>
-  /%([a-f0-9]{2})/gi.test(str) ? str : querystring.escape(str);
+  /^(%[a-f0-9]{2})+$/gi.test(str) ? str : querystring.escape(str);
