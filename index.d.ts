@@ -78,12 +78,15 @@ declare class Billing {
         Amt: number;
         AuthCode: string;
         AuthDate: string;
+        BuyerName?: string;
         CardCl: string;
         CardCode: string;
         CardInterest: string;
         CardName: string;
         CardNo: string;
         CardQuota: string;
+        GoodsName?: string;
+        MID?: string;
         Moid: string;
         ResultCode: string;
         ResultMsg: string;
