@@ -85,7 +85,9 @@ class Billing {
     );
 
     // To report error to NICEPAY EdiDate is required
-    response.EdiDate = props.EdiDate;
+    if (response.data) {
+      response.data.EdiDate = props.EdiDate;
+    }
 
     return response.data;
   }
