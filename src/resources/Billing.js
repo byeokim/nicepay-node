@@ -164,6 +164,11 @@ class Billing {
       }
     );
 
+    // To report error to NICEPAY EdiDate is required
+    if (response.data) {
+      response.data.EdiDate = props.EdiDate;
+    }
+
     return response.data;
   }
 
@@ -209,6 +214,11 @@ class Billing {
         headers: {...DEFAULT_HEADERS},
       }
     );
+
+    // To report error to NICEPAY EdiDate is required
+    if (response.data) {
+      response.data.EdiDate = props.EdiDate;
+    }
 
     return response.data;
   }
@@ -269,6 +279,11 @@ class Billing {
         headers: {...DEFAULT_HEADERS},
       }
     );
+
+    // To report error to NICEPAY EdiDate is required
+    if (response.data) {
+      response.data.EdiDate = props.EdiDate;
+    }
 
     return response.data;
   }

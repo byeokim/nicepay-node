@@ -151,6 +151,8 @@ EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형
 
 NICEPAY API 1.0 문서를 참고하시기 바랍니다.
 
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
+
 ##### 결제승인 요청에 대한 망취소
 
 다음의 두 경우 기 요청한 결제승인에 대한 거래대사 불일치 방지를 위해 결제요청 취소요청을 진행하는데 이를 망취소라고 합니다.
@@ -189,6 +191,8 @@ EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형
 
 NICEPAY API 1.0 문서를 참고하시기 바랍니다.
 
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
+
 ##### 결제취소 요청
 
 ```js
@@ -224,6 +228,8 @@ EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형
 ###### Response `object` | `undefined`
 
 NICEPAY API 1.0 문서를 참고하시기 바랍니다.
+
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
 
 ### 빌링결제 (billing)
 
@@ -266,7 +272,23 @@ EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형
 
 ###### Response `object` | `undefined`
 
-NICEPAY BILLING API 1.0.6 문서를 참고하시기 바랍니다.
+```
+{
+  ResultCode: '',
+  ResultMsg: '',
+  BID: '',
+  AuthDate: '',
+  CardCode: '',
+  CardName: '',
+  TID: '',
+  CardCl: '',
+  AcquCardCode: '',
+  AcquCardName: '',
+  EdiDate: ''
+}
+```
+
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
 
 ##### 빌키 삭제 요청
 
@@ -297,6 +319,8 @@ EdiType|string||JSON 또는 KV|Response의 데이터 타입. KV는 Key=Value 형
 ###### Response `object` | `undefined`
 
 NICEPAY BILLING API 1.0.6 문서를 참고하시기 바랍니다.
+
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
 
 ##### 빌링 결제 승인 요청
 
@@ -361,9 +385,12 @@ TaxFreeAmt|number|||별도 면세금액 설정시 사용
   Moid: '',
   BuyerName: '',
   TID: '',
-  CardNo: ''
+  CardNo: '',
+  EdiDate: ''
 }
 ```
+
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
 
 ##### 빌링 결제 승인 취소 요청
 
@@ -403,6 +430,8 @@ TaxFreeAmt|number|||별도 면세금액 설정시 사용
 ###### Response `object` | `undefined`
 
 NICEPAY BILLING API 1.0.6 문서를 참고하시기 바랍니다.
+
+*본 라이브러리는 디버그 용도로 API의 응답사양에 `EdiDate`를 추가했습니다.*
 
 ## 라이센스
 
