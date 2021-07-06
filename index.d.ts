@@ -34,6 +34,7 @@ declare class Billing {
         ResultCode: string;
         ResultMsg: string;
         TID: string;
+        EdiDate: string;
       }>
     | undefined;
 
@@ -50,6 +51,7 @@ declare class Billing {
         ResultCode: string;
         ResultMsg: string;
         TID: string;
+        EdiDate: string;
       }>
     | undefined;
 
@@ -91,6 +93,7 @@ declare class Billing {
         ResultCode: string;
         ResultMsg: string;
         TID: string;
+        EdiDate: string;
       }>
     | undefined;
 
@@ -122,6 +125,7 @@ declare class Billing {
         ResultCode: string;
         ResultMsg: string;
         TID: string;
+        EdiDate: string;
       }>
     | undefined;
 }
@@ -181,6 +185,7 @@ declare class Checkout {
         VbankNum?: string;
         VbankExpDate?: string;
         VbankExpTime?: string;
+        EdiDate: string;
       }
     | undefined
   >;
@@ -205,6 +210,7 @@ declare class Checkout {
         PayMethod?: string;
         RemainAmt?: number;
         TID?: string;
+        EdiDate: string;
       }>
     | undefined;
 
@@ -232,6 +238,7 @@ declare class Checkout {
         PayMethod?: string;
         RemainAmt?: number;
         TID?: string;
+        EdiDate: string;
       }>
     | undefined;
 }
